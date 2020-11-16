@@ -1,18 +1,14 @@
-<!-- <meta name="google-signin-client_id" content="{{ gClientId }}" /> -->
-
-<p>gogl works!</p>
-
 <button (click)="signInWithGoogle()">Google SSO</button>
 <button (click)="signInWithFB()">Facebook SSO</button>
 <button (click)="signInWithVK()">VK SSO</button>
-<button class="" (click)="signOut()">Sign out</button>
+<button (click)="signOut()">Sign out</button>
 <div *ngIf="user" class="">
-  <h6 class="">Social Login Demo</h6>
-  <div class=""></div>
-  <img *ngIf="user.photoUrl" class="" src="{{ user.photoUrl }}" />
-  <div class="">
-    <h4 class="">{{ user.name }}</h4>
-    <p class="">{{ user.email }}</p>
-    <p class="">Logged in with {{ user.provider }}</p>
+  <div ></div>
+  <img *ngIf="user.photoUrl && user.provider !== 'FACEBOOK'" class="" src="{{ user.photoUrl}}" />
+  <img *ngIf="user.provider === 'FACEBOOK'" src="{{user.response.picture.data.url}}" />
+  <div >
+    <h4 >{{ user.name }}</h4>
+    <p >{{ user.email }}</p>
+    <p >Logged in with {{ user.provider }}</p>
   </div>
 </div>
