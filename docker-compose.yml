@@ -1,0 +1,22 @@
+version: '3'
+services:
+  # nodejs-server:
+  #   build:
+  #     context: ./api
+  #     dockerfile: Dockerfile-dev
+  #   ports:
+  #     - "3080:3080"
+  #   container_name: node-api
+  #   volumes:
+  #      - ./api:/usr/src/app/api
+  #      - /usr/src/app/api/node_modules
+  angular-ui:
+    build:
+      context: ./social
+      dockerfile: Dockerfile-dev
+    ports:
+      - "4200:4200"
+    container_name: angular-ui
+    volumes:
+       - ./social:/usr/src/app/social
+       - /usr/src/app/social/node_modules

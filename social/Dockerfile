@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # # Add metadata to the image to describe which port the container is listening on at runtime.
-# EXPOSE 4200
+EXPOSE 80
 
 RUN npm run build
 
@@ -26,6 +26,7 @@ FROM nginx:1.17.1-alpine
 COPY --from=build /usr/src/app/dist/social /usr/share/nginx/html
 
 
+# useless
 
 # # Run the specified command within the container.
 # CMD [ "npm", "start" ]
